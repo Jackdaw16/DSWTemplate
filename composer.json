@@ -1,0 +1,21 @@
+{
+    "name": "alejandro/library",
+    "description": "This are a CRUD template for library",
+    "type": "project",
+    "license": "Open Source",
+    "autoload": {
+        "psr-4": {
+            "Alejandro\\Library\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jackdaw16",
+            "email": "alejandro.demetrio13@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "ext-pdo": "*"
+    }
+}
