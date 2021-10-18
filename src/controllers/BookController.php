@@ -3,8 +3,8 @@
 namespace Alejandro\Library\controllers;
 
 require 'DatabaseConnection.php';
-require '../models/Book.php';
-require '../models/Author.php';
+require '../../models/Author.php';
+require '../../models/Book.php';
 
 use Alejandro\Library\models\Author;
 use Alejandro\Library\models\Book;
