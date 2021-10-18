@@ -20,6 +20,12 @@ class Book
         $this->author = $author;
     }
 
+    public function __constructWithoutId(string $title, DateTime $releaseDate, Author $author) {
+        $this->title = $title;
+        $this->releaseDate = $releaseDate;
+        $this->author = $author;
+    }
+
     /**
      * @return int
      */

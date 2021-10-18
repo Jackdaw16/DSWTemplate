@@ -12,7 +12,7 @@ use PDO;
 
 class AuthorController
 {
-    private $databaseContext;
+    private DatabaseConnection $databaseContext;
 
     public function __construct()
     {
@@ -50,6 +50,45 @@ class AuthorController
         }
 
         return $author;
+    }
+
+    public function postAuthor(Author $author) {
+        $query = $this->databaseContext->getConnection()->prepare("insert into author (full_name, birth_day) value (?, ?)");
+        $result = $query->execute([$author->getFullName(), $author->getBirthDay()]);
+
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function updateAuthor(int $id, Author $author) {
+        if ($this->getAuthor($id)) {
+            $query = $this->databaseContext->getConnection()->prepare("update author set full_name=?, birth_day=? where id=?");
+            $result = $query->execute([$author->getFullName(), $author->getBirthDay(), $id]);
+
+            if ($result) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+
+    }
+
+    public function deleteAuthor(int $id) {
+        if ($this->getAuthor($id)) {
+            $query = $this->databaseContext->getConnection()->prepare("delete from author a where a.id = $id");
+            $result = $query->execute();
+
+            if ($result)
+                return true;
+            else
+                return false;
+        }
     }
 
 }

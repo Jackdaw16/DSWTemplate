@@ -13,7 +13,7 @@ use PDO;
 
 class BookController
 {
-    private $databaseContext;
+    private DatabaseConnection $databaseContext;
 
     public function __construct()
     {
@@ -37,7 +37,7 @@ class BookController
         return $books;
     }
 
-    public function getAuthor(int $id) {
+    public function getBook(int $id) {
         $book = Book::class;
 
         $query = $this->databaseContext->getConnection()->prepare("select * from book b where b.id = $id inner join author a on b.author_id = a.id");
@@ -53,6 +53,45 @@ class BookController
         }
 
         return $book;
+    }
+
+    public function postBook(Book $book) {
+        $query = $this->databaseContext->getConnection()->prepare("insert into book (title, release_date, author_id) value (?, ?, ?)");
+        $result = $query->execute([$book->getTitle(), $book->getReleaseDate(), $book->getAuthor()->getId()]);
+
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function updateBook(int $id, Book $book) {
+        if ($this->getBook($id)) {
+            $query = $this->databaseContext->getConnection()->prepare("update book set title=?, release_date=?, author_id=? where id=?");
+            $result = $query->execute([$book->getTitle(), $book->getReleaseDate(), $book->getAuthor()->getId(), $id]);
+
+            if ($result) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+
+    }
+
+    public function deleteBook(int $id) {
+        if ($this->getBook($id)) {
+            $query = $this->databaseContext->getConnection()->prepare("delete from book b where b.id = $id");
+            $result = $query->execute();
+
+            if ($result)
+                return true;
+            else
+                return false;
+        }
     }
 
 }

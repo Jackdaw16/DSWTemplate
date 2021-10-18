@@ -19,6 +19,11 @@ class Author
         $this->birthDay = $birthDay;
     }
 
+    public function __constructWithoutId(string $fullName, DateTime $birthDay) {
+        $this->fullName = $fullName;
+        $this->birthDay = $birthDay;
+    }
+
     /**
      * @return int
      */
