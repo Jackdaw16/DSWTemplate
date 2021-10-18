@@ -4,7 +4,7 @@
 namespace Alejandro\Library\controllers;
 
 require 'DatabaseConnection.php';
-require '../models/Author.php';
+require '../../models/Author.php';
 
 use Alejandro\Library\models\Author;
 use DateTime;
@@ -28,7 +28,7 @@ class AuthorController
         $response = $query->fetchAll(PDO::FETCH_OBJ);
 
         foreach ($response as $item) {
-            $author = new Author($item->author_id, $item->full_name, new DateTime($item->birth_date));
+            $author = new Author($item->id, $item->full_name, new DateTime($item->birth_date));
             array_push($authors, $author);
         }
 

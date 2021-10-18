@@ -32,7 +32,7 @@
                                 <a href="book/book_list.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Listado</span></a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Crear libros</span></a>
+                                <a href="book/book_create.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Crear libros</span></a>
                             </li>
                         </ul>
                     </li>
@@ -41,10 +41,10 @@
                             <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Autores</span></a>
                         <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                             <li class="w-100">
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Listado de autores</span> 1</a>
+                                <a href="author/author_list.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Listado de autores</span></a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Crear autores</span> 2</a>
+                                <a href="author/author_create.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Crear autores</span></a>
                             </li>
                         </ul>
                     </li>

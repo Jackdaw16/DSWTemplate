@@ -29,10 +29,10 @@
                             <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Libros</span> </a>
                         <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                             <li class="w-100">
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Listado</span></a>
+                                <a href="book_list.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Listado</span></a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Crear libros</span></a>
+                                <a href="book_create.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Crear libros</span></a>
                             </li>
                         </ul>
                     </li>
@@ -41,10 +41,10 @@
                             <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Autores</span></a>
                         <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                             <li class="w-100">
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Listado de autores</span> 1</a>
+                                <a href="../author/author_list.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Listado de autores</span></a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Crear autores</span> 2</a>
+                                <a href="../author/author_create.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Crear autores</span></a>
                             </li>
                         </ul>
                     </li>
@@ -71,7 +71,7 @@
                     echo "<tr>
                     <th scope='row'>". $book->getId() ."</th>
                     <td>" . $book->getTitle() ."</td>
-                    <td>" . $book->getReleaseDate()->format('Y-m-d H:i:s') ."</td>
+                    <td>" . $book->getReleaseDate()->format('Y-m-d') ."</td>
                     <td>" . $book->getAuthor()->getFullName() . "</td>
                     <td><a href='book_detail.php'><button class='btn btn-primary'>Ver</button></a></td>
                     <td><a href='book_update.php'><button class='btn btn-link'>Actualizar</button></a></td>
